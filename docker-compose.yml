@@ -1,0 +1,33 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: airline-postgres
+    environment:
+      POSTGRES_DB: airline_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 2403cL003kiha
+    ports:
+      - "5432:5432"
+    volumes:
+      - airline_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d airline_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: ./airlinebooking
+    container_name: airline-backend
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/airline_db
+      DB_PASSWORD: 2403cL003kiha
+      JWT_SECRET: jnxdcdbxjhdb54144YTDBRCVNGHJ
+    ports:
+      - "8080:8080"
+
+volumes:
+  airline_pgdata:
