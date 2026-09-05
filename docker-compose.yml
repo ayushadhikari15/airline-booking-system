@@ -5,7 +5,7 @@ services:
     environment:
       POSTGRES_DB: airline_db
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 2403cL003kiha
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
     ports:
       - "5432:5432"
     volumes:
@@ -24,8 +24,8 @@ services:
         condition: service_healthy
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/airline_db
-      DB_PASSWORD: 2403cL003kiha
-      JWT_SECRET: jnxdcdbxjhdb54144YTDBRCVNGHJ
+      DB_PASSWORD: ${DB_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
     ports:
       - "8080:8080"
 
