@@ -9,7 +9,7 @@ Full-stack flight booking app with concurrency-safe seat reservation.
 
 ## Architecture
 Monolithic backend, layered (Controller → Service → Repository), stateless JWT auth.
-See [BUILD_GUIDE.md](./airlinebooking/BUILD_GUIDE.md) for the full design.
+
 
 ## The interesting part: concurrency-safe booking
 Two users can never book the same seat, even simultaneously. `SeatRepository`
