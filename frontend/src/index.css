@@ -1,0 +1,42 @@
+*{
+  box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: #fafafa;
+    color: #1a1a1a;
+}
+
+input, button{
+  font-family: inherit;
+  font-size: 14px;
+  padding: 4px;
+  border-radius: 4px;
+  border: 1px solid #ccc;  
+}
+
+button{
+  cursor: pointer;
+  background-color: #1a1a1a;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+}
+
+button:disabled{
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+a{
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+
