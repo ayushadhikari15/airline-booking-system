@@ -29,5 +29,13 @@ services:
     ports:
       - "8080:8080"
 
+  frontend:
+    build: ./frontend
+    container_name: airline-frontend
+    depends_on:
+      - backend
+    ports:
+      - "5173:80"
+
 volumes:
   airline_pgdata:
